@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Disruptiva - Redes Sociales</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-cyber: #050811;
+            --card-bg: rgba(10, 20, 38, 0.7);
+            --neon-cyan: #00f2fe;
+            --neon-magenta: #fe0979;
+            --neon-yellow: #ffd100;
+            --text-glow: 0 0 10px rgba(0, 242, 254, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cyber);
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* --- Fondo Dinámico de Partículas de Luz --- */
+        .cyber-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 50%, #0f172a 0%, #050811 100%);
+        }
+
+        /* Orbes de luz de neón de fondo */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            animation: pulseOrb 10s infinite alternate;
+        }
+        .orb-1 { top: 10%; left: 10%; width: 400px; height: 400px; background: var(--neon-cyan); }
+        .orb-2 { bottom: 10%; right: 10%; width: 500px; height: 500px; background: var(--neon-magenta); animation-delay: 3s; }
+
+        /* Iconos Flotantes con Glitch / Neón */
+        .floating-icon {
+            position: absolute;
+            font-size: 3.5rem;
+            opacity: 0.12;
+            animation: floatAway 20s infinite linear;
+        }
+        .f-tk-1 { left: 5%; top: 20%; color: var(--neon-cyan); text-shadow: 3px 0 var(--neon-magenta); animation-duration: 18s; }
+        .f-ig-1 { right: 8%; top: 15%; color: var(--neon-magenta); text-shadow: -3px 0 var(--neon-cyan); animation-duration: 22s; }
+        .f-tk-2 { left: 12%; bottom: 15%; color: var(--neon-cyan); animation-duration: 25s; }
+        .f-ig-2 { right: 15%; bottom: 25%; color: var(--neon-magenta); animation-duration: 16s; }
+
+        @keyframes pulseOrb {
+            0% { transform: scale(1); opacity: 0.1; }
+            100% { transform: scale(1.3); opacity: 0.25; }
+        }
+
+        @keyframes floatAway {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        /* --- Encabezado Holográfico --- */
+        header {
+            text-align: center;
+            padding: 6rem 2rem 4rem 2rem;
+            position: relative;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #fff, #88a0c0, var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 8px rgba(0,242,254,0.3));
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+
+        .hero-subtitle strong {
+            color: var(--neon-cyan);
+            text-shadow: var(--text-glow);
+        }
+
+        /* --- Grid de Contenedores (Forzado a 2x2 en PC) --- */
+        .matrix-container {
+            max-width: 1000px; 
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 2.5rem;
+        }
+
+        /* --- Tarjeta Base Holográfica (Glassmorphism) --- */
+        .holo-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .holo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,242,254,0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .holo-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: rgba(0, 242, 254, 0.3);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.2);
+        }
+
+        .holo-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Bordes de esquina estilo interfaz militar/futurista */
+        .card-corner {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border: 2px solid transparent;
+        }
+        .top-left { top: 15px; left: 15px; border-top-color: rgba(255,255,255,0.2); border-left-color: rgba(255,255,255,0.2); }
+        .bottom-right { bottom: 15px; right: 15px; border-bottom-color: rgba(255,255,255,0.2); border-right-color: rgba(255,255,255,0.2); }
+
+        .holo-card:hover .top-left { border-top-color: var(--neon-cyan); border-left-color: var(--neon-cyan); }
+        .holo-card:hover .bottom-right { border-bottom-color: var(--neon-magenta); border-right-color: var(--neon-magenta); }
+
+        /* Contenido de Tarjetas */
+        .card-icon-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .holo-card:hover .card-icon-wrapper {
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+            border-color: var(--neon-cyan);
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .card-desc {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* --- Elementos Interactivos Personalizados --- */
+        .phone-mockup {
+            margin-top: 1.5rem;
+            border: 2px solid rgba(0, 242, 254, 0.3);
+            border-radius: 12px;
+            padding: 0.5rem;
+            text-align: center;
+            background: rgba(0,0,0,0.4);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: var(--neon-cyan);
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 5px rgba(0,242,254,0.2); }
+            100% { box-shadow: 0 0 15px rgba(0,242,254,0.5); }
+        }
+
+        .digital-badge {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--neon-magenta), transparent);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .live-chart {
+            margin-top: 1.5rem;
+            width: 100%;
+            height: 80px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .ads-card {
+            border: 1px solid rgba(254, 9, 121, 0.2);
+        }
+        .ads-card:hover {
+            border-color: var(--neon-magenta);
+            box-shadow: 0 0 30px rgba(254, 9, 121, 0.3);
+        }
+        .ads-card .card-icon-wrapper {
+            color: var(--neon-magenta);
+        }
+
+        /* --- SECCIÓN DE PRECIO --- */
+        .pricing-container {
+            max-width: 600px;
+            margin: 2rem auto 0 auto;
+            padding: 0 2rem;
+        }
+
+        .pricing-card {
+            text-align: center;
+            align-items: center;
+            border-color: rgba(255, 209, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(255, 209, 0, 0.1);
+        }
+
+        .pricing-card:hover {
+            border-color: var(--neon-yellow);
+            box-shadow: 0 15px 50px rgba(255, 209, 0, 0.2);
+            transform: translateY(-8px);
+        }
+
+        .pricing-card .top-left { border-top-color: var(--neon-yellow); border-left-color: var(--neon-yellow); }
+        .pricing-card .bottom-right { border-bottom-color: var(--neon-yellow); border-right-color: var(--neon-yellow); }
+
+        .pricing-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: #94a3b8;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .price-amount {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: var(--neon-yellow);
+            text-shadow: 0 0 20px rgba(255, 209, 0, 0.5);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-currency {
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: none;
+            margin-left: 5px;
+        }
+
+        .price-period {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        /* --- Botón de Acción Futurista (CTA) --- */
+        .cta-box {
+            text-align: center;
+            margin: 4rem 0 7rem 0;
+        }
+
+        .btn-cyber {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #000;
+            background: var(--neon-cyan);
+            padding: 1.2rem 3.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 0px; 
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+            transition: all 0.3s ease;
+            display: inline-block;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+        }
+
+        .btn-cyber:hover {
+            background: var(--neon-magenta);
+            color: #fff;
+            box-shadow: 0 0 35px rgba(254, 9, 121, 0.7);
+            transform: scale(1.05);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #02040a;
+            padding: 2.5rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 1rem;
+            color: #475569;
+            letter-spacing: 1px;
+        }
+
+        /* --- Media Queries (Móviles y Tablets) --- */
+        @media (max-width: 900px) {
+            .matrix-container { 
+                grid-template-columns: 1fr; 
+                gap: 1.5rem; 
+                padding: 1rem;
+            }
+            .hero-title { font-size: 2.3rem; letter-spacing: 2px; }
+            .hero-subtitle { font-size: 1.1rem; padding: 0 1rem; }
+            .holo-card { padding: 2rem 1.5rem; }
+            .price-amount { font-size: 3.5rem; }
+            .btn-cyber { padding: 1rem 2.5rem; font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cyber-bg">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <i class="fab fa-tiktok floating-icon f-tk-1"></i>
+        <i class="fab fa-instagram floating-icon f-ig-1"></i>
+        <i class="fab fa-tiktok floating-icon f-tk-2"></i>
+        <i class="fab fa-instagram floating-icon f-ig-2"></i>
+    </div>
+
+    <header>
+        <h1 class="hero-title">Estrategia Viral</h1>
+        <p class="hero-subtitle">Propuesta de despliegue digital avanzado. Formatos de alta retención optimizados para <strong>Conversión Global</strong>.</p>
+    </header>
+
+    <div class="matrix-container">
+        
+        <div class="holo-card">
+            <div class="card-corner top-left"></div>
+            <div class="card-corner bottom-right"></div>
+            <div>
+                <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-clone"></i>
+                </div>
+                <h2 class="card-title">Formato Espejo</h2>
+                <p class="card-desc">Sincronización algorítmica total. Editamos y adaptamos el contenido nativo de TikTok con especificaciones de alto impacto para dominar Instagram Reels en simultáneo.</p>
+            </div>
+            <div class="phone-mockup">
+                <i class="fa-solid fa-mobile-pointer"></i> TIKTOK ⇄ REELS
+            </div>
+        </div>
+
+        <div class="holo-card">
+            <div class="card-corner top-left"></div>
+            <div class="card-corner bottom-right"></div>
+            <div>
+                <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-cubes"></i>
+                </div>
+                <h2 class="card-title">Feed Matrix</h2>
+                <p class="card-desc">Diseño de parrilla avanzada. 12 publicaciones mensuales estratégicas estructuradas entre carruseles educativos, contenido interactivo y assets gráficos premium.</p>
+            </div>
+            <div>
+                <span class="digital-badge"><i class="fa-solid fa-calendar-days"></i> 12 POSTS / MES</span>
+            </div>
+        </div>
+
+        <div class="holo-card">
+            <div class="card-corner top-left"></div>
+            <div class="card-corner bottom-right"></div>
+            <div>
+                <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                </div>
+                <h2 class="card-title">Daily Stories</h2>
+                <p class="card-desc">12 micro-contenidos dinámicos interactivos al mes. Diseñados con disparadores psicológicos y llamadas a la acción (CTA) para encender la interacción de la comunidad.</p>
+            </div>
+            <div>
+                <span class="digital-badge"><i class="fa-solid fa-fire"></i> 12 HISTORIAS</span>
+            </div>
+        </div>
+
+        <div class="holo-card ads-card">
+            <div class="card-corner top-left"></div>
+            <div class="card-corner bottom-right"></div>
+            <div>
+                <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h2 class="card-title" style="color: var(--neon-magenta);">Ads & Pautas</h2>
+                <p class="card-desc"><strong>Gestión publicitaria continua (semanal)</strong> para optimización de resultados. Además, incluye la configuración de <strong>2 pautas de contenido mensuales</strong> para inyectar tráfico directo a tus ventas.</p>
+            </div>
+            <div class="live-chart">
+                <svg viewBox="0 0 100 30" width="100%" height="100%">
+                    <path d="M0,25 Q15,5 30,20 T60,8 T90,2 L100,2 L100,30 L0,30 Z" fill="rgba(254, 9, 121, 0.1)"></path>
+                    <path d="M0,25 Q15,5 30,20 T60,8 T90,2" fill="none" stroke="#fe0979" stroke-width="1.5"></path>
+                    <circle cx="90" cy="2" r="2" fill="#00f2fe"></circle>
+                </svg>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="pricing-container">
+        <div class="holo-card pricing-card">
+            <div class="card-corner top-left"></div>
+            <div class="card-corner bottom-right"></div>
+            <h3 class="pricing-title">Inversión del Proyecto</h3>
+            <div class="price-amount">270<span class="price-currency">USD</span></div>
+            <div class="price-period">/ Mensual</div>
+        </div>
+    </div>
+
+    <div class="cta-box">
+        <a href="https://wa.me/TU-NUMERO" class="btn-cyber" target="_blank">Aprobar Propuesta <i class="fa-solid fa-terminal"></i></a>
+    </div>
+
+    <footer>
+        <p>// SISTEMA DE PROPUESTA COMERCIAL ACTIVO . RECONOCIMIENTO DIGITAL 2026</p>
+    </footer>
+
+</body>
+</html>
