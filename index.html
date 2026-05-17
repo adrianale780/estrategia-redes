@@ -33,7 +33,7 @@
             min-height: 100vh;
         }
 
-        /* --- Fondo Dinámico de Partículas de Luz --- */
+        /* --- Fondo Dinámico --- */
         .cyber-bg {
             position: fixed;
             top: 0;
@@ -45,7 +45,6 @@
             background: radial-gradient(circle at 50% 50%, #0f172a 0%, #050811 100%);
         }
 
-        /* Orbes de luz de neón de fondo */
         .glow-orb {
             position: absolute;
             border-radius: 50%;
@@ -56,7 +55,6 @@
         .orb-1 { top: 10%; left: 10%; width: 400px; height: 400px; background: var(--neon-cyan); }
         .orb-2 { bottom: 10%; right: 10%; width: 500px; height: 500px; background: var(--neon-magenta); animation-delay: 3s; }
 
-        /* Iconos Flotantes con Glitch / Neón */
         .floating-icon {
             position: absolute;
             font-size: 3.5rem;
@@ -79,7 +77,7 @@
             100% { transform: translateY(0) rotate(360deg); }
         }
 
-        /* --- Encabezado Holográfico --- */
+        /* --- Encabezado --- */
         header {
             text-align: center;
             padding: 6rem 2rem 4rem 2rem;
@@ -113,7 +111,7 @@
             text-shadow: var(--text-glow);
         }
 
-        /* --- Grid de Contenedores (Forzado a 2x2 en PC) --- */
+        /* --- Grid de Contenedores --- */
         .matrix-container {
             max-width: 1000px; 
             margin: 0 auto;
@@ -123,7 +121,6 @@
             gap: 2.5rem;
         }
 
-        /* --- Tarjeta Base Holográfica (Glassmorphism) --- */
         .holo-card {
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -162,7 +159,6 @@
             opacity: 1;
         }
 
-        /* Bordes de esquina estilo interfaz militar/futurista */
         .card-corner {
             position: absolute;
             width: 12px;
@@ -175,7 +171,6 @@
         .holo-card:hover .top-left { border-top-color: var(--neon-cyan); border-left-color: var(--neon-cyan); }
         .holo-card:hover .bottom-right { border-bottom-color: var(--neon-magenta); border-right-color: var(--neon-magenta); }
 
-        /* Contenido de Tarjetas */
         .card-icon-wrapper {
             width: 70px;
             height: 70px;
@@ -214,7 +209,6 @@
             font-weight: 500;
         }
 
-        /* --- Elementos Interactivos Personalizados --- */
         .phone-mockup {
             margin-top: 1.5rem;
             border: 2px solid rgba(0, 242, 254, 0.3);
@@ -389,8 +383,8 @@
     </div>
 
     <header>
-        <h1 class="hero-title">Gestión Estratégica</h1>
-        <p class="hero-subtitle">Propuesta de marketing digital enfocada en posicionamiento, creación de contenido de valor y <strong>Conversión de Ventas</strong>.</p>
+        <h1 class="hero-title">Gestión de Redes</h1>
+        <p class="hero-subtitle">Estrategia de marketing enfocada en hacer crecer tu marca, conectar con tus clientes y <strong>generar más ventas</strong>.</p>
     </header>
 
     <div class="matrix-container">
@@ -402,11 +396,11 @@
                 <div class="card-icon-wrapper">
                     <i class="fa-solid fa-clone"></i>
                 </div>
-                <h2 class="card-title">Estrategia Espejo</h2>
-                <p class="card-desc">Publicación cruzada de contenido. Adaptamos y optimizamos los formatos de video vertical para aprovechar el alcance orgánico tanto en TikTok como en Instagram Reels de manera simultánea.</p>
+                <h2 class="card-title">TikTok e Instagram</h2>
+                <p class="card-desc">Creamos y editamos videos verticales atractivos para publicarlos simultáneamente en TikTok y en Instagram Reels. De esta manera, multiplicamos el alcance de tu marca sin que tengas que pagar el doble.</p>
             </div>
             <div class="phone-mockup">
-                <i class="fa-solid fa-mobile-pointer"></i> TIKTOK ⇄ REELS
+                <i class="fa-solid fa-mobile-pointer"></i> VIDEOS PARA AMBAS REDES
             </div>
         </div>
 
@@ -415,13 +409,13 @@
             <div class="card-corner bottom-right"></div>
             <div>
                 <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-cubes"></i>
+                    <i class="fa-solid fa-images"></i>
                 </div>
-                <h2 class="card-title">Parrilla Mensual</h2>
-                <p class="card-desc">Planificación de 12 publicaciones mensuales en el feed. Combinamos estratégicamente formatos gráficos y audiovisuales orientados a educar, generar valor y conectar con tu público objetivo.</p>
+                <h2 class="card-title">12 Publicaciones</h2>
+                <p class="card-desc">Diseño y programación de 12 posts mensuales para tu perfil principal. Nos encargamos de crear imágenes y videos de alta calidad enfocados en mostrar tus servicios y destacar frente a tu competencia.</p>
             </div>
             <div>
-                <span class="digital-badge"><i class="fa-solid fa-calendar-days"></i> 12 POSTS / MES</span>
+                <span class="digital-badge"><i class="fa-solid fa-calendar-check"></i> 12 POSTS MENSUALES</span>
             </div>
         </div>
 
@@ -430,13 +424,13 @@
             <div class="card-corner bottom-right"></div>
             <div>
                 <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-bolt-lightning"></i>
+                    <i class="fa-solid fa-mobile-screen"></i>
                 </div>
-                <h2 class="card-title">Historias Activas</h2>
-                <p class="card-desc">Diseño de 12 historias al mes enfocadas en la retención. Utilizamos llamados a la acción (CTA) y elementos interactivos para mantener a tu comunidad participando constantemente.</p>
+                <h2 class="card-title">12 Historias</h2>
+                <p class="card-desc">Mantenemos tu cuenta viva y activa todos los días con 12 historias diseñadas al mes. Usamos un formato amigable para responder dudas, hacer encuestas y llevar a tus seguidores a comprar.</p>
             </div>
             <div>
-                <span class="digital-badge"><i class="fa-solid fa-fire"></i> 12 HISTORIAS</span>
+                <span class="digital-badge"><i class="fa-solid fa-eye"></i> 12 HISTORIAS MENSUALES</span>
             </div>
         </div>
 
@@ -447,8 +441,8 @@
                 <div class="card-icon-wrapper">
                     <i class="fa-solid fa-video"></i>
                 </div>
-                <h2 class="card-title" style="color: var(--neon-magenta);">Producción y Ads</h2>
-                <p class="card-desc">Llevamos a cabo <strong>2 pautas (sesiones de grabación) al mes</strong> para generar todo el material audiovisual necesario para las 12 publicaciones. Adicionalmente, gestionamos tus campañas publicitarias (Ads) para impulsar conversiones.</p>
+                <h2 class="card-title" style="color: var(--neon-magenta);">Grabación y Publicidad</h2>
+                <p class="card-desc">Incluye <strong>2 sesiones de grabación presenciales (pautas) al mes</strong> para grabar y recolectar todo el material necesario de los posts. Además, configuramos y gestionamos tus campañas de anuncios pagados para atraer clientes reales.</p>
             </div>
             <div class="live-chart">
                 <svg viewBox="0 0 100 30" width="100%" height="100%">
@@ -472,11 +466,11 @@
     </div>
 
     <div class="cta-box">
-        <a href="https://api.whatsapp.com/send?phone=584120123049" class="btn-cyber" target="_blank">Aprobar Propuesta <i class="fa-solid fa-terminal"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=584120123049" class="btn-cyber" target="_blank">Aprobar Propuesta <i class="fa-brands fa-whatsapp"></i></a>
     </div>
 
     <footer>
-        <p>Propuesta Comercial Confidencial de Marketing Digital. 2026</p>
+        <p>Propuesta Comercial de Marketing Digital. 2026</p>
     </footer>
 
 </body>
